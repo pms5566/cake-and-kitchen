@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cake & Kitchen — Restaurant & Bakery in Main Road, Dhangadhi, Nepal. Premium custom cakes, birthday cakes, fresh pastries, local snacks, and delicious restaurant items priced within Rs 100-500. Rated 4.5 stars on Google.">
+    <meta name="keywords" content="bakery dhangadhi, restaurant dhangadhi, custom cakes nepal, birthday cakes dhangadhi, snacks dhangadhi, nepal momo, cake and kitchen dhangadhi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cake & Kitchen — Restaurant & Bakery | Dhangadhi, Nepal">
+    <meta property="og:description" content="Dhangadhi's favorite bakery and restaurant. Fresh bakes, custom cakes, pastries, momo, chowmein, and snacks all priced between Rs 100-500.">
+    <meta property="og:image" content="assets/images/hero-banner.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <title>Cake & Kitchen — Restaurant & Bakery | Dhangadhi, Nepal</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ==========================================
+       1. Navbar Header
+       ========================================== -->
+    <header class="header" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo-link">
+                <img src="assets/logo.png" alt="Cake & Kitchen Logo" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-title">Cake & Kitchen</span>
+                    <span class="logo-tagline">Restaurant & Bakery</span>
+                </div>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li>
+                        <a href="https://wa.me/9779840859491?text=Hello%20Cake%20%26%20Kitchen%2C%20I%20would%20like%20to%20place%20an%20order!" 
+                           target="_blank" 
+                           class="btn btn-secondary" 
+                           style="padding: 8px 20px; font-size: 0.85rem;">
+                            Order Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Body Overlay for Mobile Navigation -->
+    <div class="body-overlay" id="body-overlay"></div>
+
+    <!-- ==========================================
+       2. Hero Section
+       ========================================== -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/hero-banner.png" alt="Bakery shop layout display">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-welcome">Welcome to Dhangadhi's Favorite Spot</span>
+                <h1 class="hero-title">Fresh Bakes & Hearty Meals, Every Day</h1>
+                <p class="hero-tagline">Indulge in our exquisite custom cakes, fresh pastries, local snacks, and delicious meals — lovingly prepared daily with prices starting from just Rs 100.</p>
+                <div class="hero-actions">
+                    <a href="#menu" class="btn btn-primary">View Our Menu</a>
+                    <a href="https://wa.me/9779840859491?text=Hello%20Cake%20%26%20Kitchen%2C%20I'd%20like%20to%20order%20some%20items%20from%20your%20menu!" 
+                       target="_blank" 
+                       class="btn btn-whatsapp">
+                        <svg viewBox="0 0 24 24" style="width:20px; height:20px; fill:white;">
+                            <path d="M12.004 2C6.51 2 2.014 6.5 2 12c0 2.18.7 4.21 2.01 5.97L2.5 23.5l5.72-1.5c1.7.93 3.63 1.44 5.78 1.44 5.5 0 10-4.5 10-10S19.5 2 12.004 2zm5.79 14.36c-.25.7-.93 1.25-1.63 1.47-.57.17-1.3.3-3.79-.73-3.18-1.32-5.23-4.57-5.39-4.78-.16-.21-1.3-1.74-1.3-3.32 0-1.58.82-2.35 1.11-2.67.3-.3.65-.45.87-.45.21 0 .43.01.62.02.2.01.46-.08.72.54.27.65.91 2.22.99 2.38.08.16.13.35.03.55-.1.2-.15.32-.3.5-.15.18-.32.4-.45.54-.15.15-.31.3-.13.62.18.3.8 1.32 1.72 2.14.92.82 1.7-1.08 2.02-1.25.32-.17.65-.13.87.03.22.16 1.4 1.15 1.64 1.34.25.12.42.27.48.37.07.16.07.62-.18 1.32z"/>
+                        </svg>
+                        Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-indicator" aria-label="Scroll to About Section">
+            <span>Scroll Down</span>
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- ==========================================
+       3. About Us Section
+       ========================================== -->
+    <section class="about section-padding reveal-on-scroll" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-subtitle">Our Story</span>
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Dhangadhi's Favorite Bakery & Restaurant</h2>
+                    <h3>Freshness & Quality in Every Single Bite</h3>
+                    <p>Located on the bustling Main Road of Dhangadhi, Nepal, <strong>Cake & Kitchen</strong> has become the town's go-to destination for mouthwatering bakery treats and wholesome meals. We blend artisan baking techniques with authentic Nepalese and international flavors to serve our community.</p>
+                    <p>Whether you're looking for an exquisite custom wedding cake, a delightful birthday cake, hot snacks, or a complete restaurant meal, we craft it with love using fresh ingredients. All our items are carefully priced in the <strong>Rs 100 – 500</strong> range, making culinary excellence accessible to everyone.</p>
+                    
+                    <div class="about-meta">
+                        <div class="about-meta-item">
+                            <h4>4.5 ★</h4>
+                            <p>75+ Google Reviews</p>
+                        </div>
+                        <div class="about-meta-item">
+                            <h4>100%</h4>
+                            <p>Fresh Daily Guarantee</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image-wrapper">
+                    <img src="assets/images/wedding-cake.png" alt="A multi-tier decorated wedding cake" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       4. Menu Section
+       ========================================== -->
+    <section class="menu section-padding reveal-on-scroll" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Delicious Offerings</span>
+                <h2 class="section-title">Explore Our Menu</h2>
+                <p class="section-desc">From sweet bakery delights to savory restaurant favorites, find your craving here. All items are freshly made and priced under Rs 500.</p>
+            </div>
+            
+            <div class="menu-tabs">
+                <button class="menu-tab-btn active" data-category="all">All Items</button>
+                <button class="menu-tab-btn" data-category="custom-cakes">Custom Cakes</button>
+                <button class="menu-tab-btn" data-category="birthday-cakes">Birthday Cakes</button>
+                <button class="menu-tab-btn" data-category="pastries">Pastries</button>
+                <button class="menu-tab-btn" data-category="snacks">Snacks</button>
+                <button class="menu-tab-btn" data-category="restaurant">Restaurant Items</button>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- Custom Cakes -->
+                <div class="menu-card" data-category="custom-cakes">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Custom</span>
+                        <img src="assets/images/wedding-cake.png" alt="Royal Wedding Tier Cake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Royal Wedding Tier Cake</h4>
+                        <p class="menu-card-desc">Elegant and meticulously decorated multi-tiered cake designed specifically for your special wedding day.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 500</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Royal Wedding Tier Cake" aria-label="Order Royal Wedding Tier Cake via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="custom-cakes">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Custom</span>
+                        <img src="assets/images/fruit-delight.png" alt="Fruit Cream Fantasy Cake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Fruit Cream Fantasy</h4>
+                        <p class="menu-card-desc">Custom designer cake covered in vanilla fresh whipped cream and loaded with seasonal glazed tropical fruits.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 450</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Fruit Cream Fantasy" aria-label="Order Fruit Cream Fantasy Cake via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Birthday Cakes -->
+                <div class="menu-card" data-category="birthday-cakes">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Best Seller</span>
+                        <img src="assets/images/black-forest.png" alt="Black Forest Cake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Black Forest Classic</h4>
+                        <p class="menu-card-desc">Delicious layers of chocolate sponge base, fresh whipped cream, dark cherries, and chocolate shavings.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 350</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Black Forest Classic Cake" aria-label="Order Black Forest Classic Cake via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="birthday-cakes">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Popular</span>
+                        <img src="assets/images/butterscotch-bliss.png" alt="Butterscotch Bliss Cake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Butterscotch Bliss</h4>
+                        <p class="menu-card-desc">Moist butterscotch sponge layers paired with crunchy butterscotch chips and rich caramel drip.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 350</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Butterscotch Bliss Cake" aria-label="Order Butterscotch Bliss Cake via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="birthday-cakes">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/red-velvet.png" alt="Red Velvet Premium Cake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Red Velvet Premium</h4>
+                        <p class="menu-card-desc">Royal red cocoa sponge cake filled with velvety smooth cream cheese frosting layers. Irresistible!</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 450</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Red Velvet Premium Cake" aria-label="Order Red Velvet Premium Cake via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="birthday-cakes">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/strawberry-blush.png" alt="Strawberry Blush Cake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Strawberry Blush</h4>
+                        <p class="menu-card-desc">Sweet and fruity cake baked with fresh strawberries and decorated with pink strawberry buttercream.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 320</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Strawberry Blush Cake" aria-label="Order Strawberry Blush Cake via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pastries -->
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/caramel-macchiato.png" alt="Caramel Macchiato Pastry" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Caramel Macchiato Slice</h4>
+                        <p class="menu-card-desc">Rich coffee-infused pastry sponge cake slice layered with rich caramel sauce and white chocolate cream.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 120</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Caramel Macchiato Pastry Slice" aria-label="Order Caramel Macchiato Pastry Slice via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Classic</span>
+                        <img src="assets/images/chocolate-truffle.png" alt="Chocolate Truffle Pastry" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Chocolate Truffle Slice</h4>
+                        <p class="menu-card-desc">Decadent chocolate pastry layer slice smothered with dense, smooth chocolate ganache glazing.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 130</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Chocolate Truffle Pastry Slice" aria-label="Order Chocolate Truffle Pastry Slice via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/pineapple-pastry.png" alt="Pineapple Pastry" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Pineapple Bliss Slice</h4>
+                        <p class="menu-card-desc">Light and airy sponge pastry loaded with chopped pineapples, whipped cream, and cherry topping.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 100</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Pineapple Bliss Pastry Slice" aria-label="Order Pineapple Bliss Pastry Slice via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snacks -->
+                <div class="menu-card" data-category="snacks">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Fresh</span>
+                        <img src="assets/images/samosa.png" alt="Plate of crispy samosas" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Sizzling Samosa Plate</h4>
+                        <p class="menu-card-desc">Two pieces of crispy golden-brown triangles stuffed with spiced potatoes and peas, served with sweet & sour chutneys.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 100</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Sizzling Samosa Plate" aria-label="Order Sizzling Samosa Plate via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="snacks">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/choco-lava.png" alt="Choco Lava Cupcake" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Choco Lava Fondant</h4>
+                        <p class="menu-card-desc">Warm individual chocolate cake with a delicious molten liquid chocolate core. An absolute favorite snack!</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 150</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Choco Lava Fondant" aria-label="Order Choco Lava Fondant via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant Items -->
+                <div class="menu-card" data-category="restaurant">
+                    <div class="menu-card-img-wrapper">
+                        <span class="menu-card-badge">Must Try</span>
+                        <img src="assets/images/momo.png" alt="Steaming plate of Nepalese Momo" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Steaming Chicken Momo</h4>
+                        <p class="menu-card-desc">Freshly prepared steamed dumplings filled with finely chopped spiced chicken, served with tomato sesame chutney.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 180</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Steaming Chicken Momo" aria-label="Order Steaming Chicken Momo via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="restaurant">
+                    <div class="menu-card-img-wrapper">
+                        <img src="assets/images/chowmein.png" alt="Sizzling Chowmein noodles plate" class="menu-card-img" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <h4 class="menu-card-title">Sizzling Chicken Chowmein</h4>
+                        <p class="menu-card-desc">Stir-fried Nepalese noodles with colorful vegetables, chicken chunks, and local herbs and soy sauce.</p>
+                        <div class="menu-card-footer">
+                            <span class="menu-card-price">Rs 160</span>
+                            <a href="#" class="menu-card-order-btn" data-item="Sizzling Chicken Chowmein" aria-label="Order Sizzling Chicken Chowmein via WhatsApp">
+                                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       5. Gallery Section
+       ========================================== -->
+    <section class="gallery section-padding reveal-on-scroll" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Visual Feast</span>
+                <h2 class="section-title">Our Food Gallery</h2>
+                <p class="section-desc">Take a look at some of our freshly baked cakes, pastries, and restaurant dishes crafted with precision.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-caption="Royal Wedding Tier Cake - Custom design for special occasions">
+                    <img src="assets/images/wedding-cake.png" alt="Wedding cake design gallery">
+                    <div class="gallery-info">
+                        <h4>Royal Wedding Cake</h4>
+                        <p>Custom Cakes</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Steaming Chicken Momos served with spicy achar chutney">
+                    <img src="assets/images/momo.png" alt="Chicken momos plate gallery">
+                    <div class="gallery-info">
+                        <h4>Nepalese Momo</h4>
+                        <p>Restaurant Specials</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Classic Black Forest Birthday Cake layered with fresh cherries">
+                    <img src="assets/images/black-forest.png" alt="Black forest cake gallery">
+                    <div class="gallery-info">
+                        <h4>Classic Black Forest</h4>
+                        <p>Birthday Cakes</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-caption="Golden crispy samosas served fresh with mint and tamarind dips">
+                    <img src="assets/images/samosa.png" alt="Fresh samosas dish gallery">
+                    <div class="gallery-info">
+                        <h4>Crispy Samosas</h4>
+                        <p>Snacks & Dips</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-caption="Sizzling stir-fried chowmein loaded with fresh spring greens">
+                    <img src="assets/images/chowmein.png" alt="Nepalese chowmein plate gallery">
+                    <div class="gallery-info">
+                        <h4>Stir-fried Chowmein</h4>
+                        <p>Restaurant Items</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-caption="Rich Caramel Macchiato Pastry Slice with caramel icing">
+                    <img src="assets/images/caramel-macchiato.png" alt="Caramel pastry cake slice gallery">
+                    <div class="gallery-info">
+                        <h4>Caramel Macchiato</h4>
+                        <p>Pastries & Treats</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-caption="Butterscotch Bliss cake topped with butterscotch crunch">
+                    <img src="assets/images/butterscotch-bliss.png" alt="Butterscotch cake gallery">
+                    <div class="gallery-info">
+                        <h4>Butterscotch Bliss</h4>
+                        <p>Birthday Cakes</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-caption="Freshly-cut Fruit Cream Fantasy Cake design">
+                    <img src="assets/images/fruit-delight.png" alt="Glazed fruit cake gallery">
+                    <div class="gallery-info">
+                        <h4>Fruit Cream Fantasy</h4>
+                        <p>Custom Designs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal for Gallery Grid -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- ==========================================
+       6. Why Choose Us Section
+       ========================================== -->
+    <section class="features section-padding reveal-on-scroll">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Guarantee</span>
+                <h2 class="section-title">Why Choose Us?</h2>
+                <p class="section-desc">We combine taste, quality, and hygiene to deliver the best culinary experience in Dhangadhi, Nepal.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Clock/Sun Icon representing fresh daily -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Fresh Daily</h4>
+                    <p class="feature-desc">All bakery and restaurant items are freshly baked and prepared every day with standard quality controls.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Gift/Heart Icon representing custom cakes -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Custom Orders</h4>
+                    <p class="feature-desc">Get your dream custom cakes for weddings, anniversaries, and birthdays designed just the way you want.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Price Tag Icon representing affordable prices -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 8.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Affordable Prices</h4>
+                    <p class="feature-desc">Get the finest, premium quality bakery cakes and delicious hot food items priced strictly between Rs 100-500.</p>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <!-- Bike/Delivery Icon representing fast delivery -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-4 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                        </svg>
+                    </div>
+                    <h4 class="feature-title">Fast Delivery</h4>
+                    <p class="feature-desc">Hot meals and fresh cakes delivered directly to your doorstep in Dhangadhi with fast, careful delivery agents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       7. Reviews Section
+       ========================================== -->
+    <section class="reviews section-padding reveal-on-scroll" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Customer Love</span>
+                <h2 class="section-title">What Our Guests Say</h2>
+                <p class="section-desc">We pride ourselves on cooking with passion and baking with care. Here are verified reviews from our lovely guests.</p>
+            </div>
+            
+            <div class="reviews-badge-wrapper">
+                <div class="reviews-badge">
+                    <div class="reviews-stars">★★★★★</div>
+                    <div class="reviews-badge-info">
+                        <h4>4.5 / 5.0 Stars Rating</h4>
+                        <p>Based on 75 Google Reviews</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AJ</div>
+                        <div class="review-author">
+                            <h4>Aarav Joshi</h4>
+                            <span>Google Local Guide</span>
+                        </div>
+                        <div class="reviews-stars" style="margin-left: auto; font-size: 0.95rem;">★★★★★</div>
+                    </div>
+                    <p class="review-body">"Absolute best momo and custom cakes in Dhangadhi! The chicken momos are juicy and spiced to perfection. The prices are super reasonable, usually under Rs 200 for snacks. The staff is extremely warm."</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">PS</div>
+                        <div class="review-author">
+                            <h4>Priyanka Shrestha</h4>
+                            <span>Verified Guest</span>
+                        </div>
+                        <div class="reviews-stars" style="margin-left: auto; font-size: 0.95rem;">★★★★★</div>
+                    </div>
+                    <p class="review-body">"I ordered a custom multi-tiered Black Forest birthday cake for my daughter. It was designed beautifully, exactly like the photo I shared. The cake was incredibly soft and fresh. Cake & Kitchen is our family's favorite bakery!"</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">RC</div>
+                        <div class="review-author">
+                            <h4>Ramesh Chaudhari</h4>
+                            <span>Google Reviewer</span>
+                        </div>
+                        <div class="reviews-stars" style="margin-left: auto; font-size: 0.95rem;">★★★★☆</div>
+                    </div>
+                    <p class="review-body">"Great restaurant and bakery. Their vegetable chowmein and pastries are delicious. Very affordable (Rs 150 range) and hygiene standards are good. Closes late at night, which is super convenient."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+       8. WhatsApp Order Banner
+       ========================================== -->
+    <section class="order-cta section-padding reveal-on-scroll">
+        <div class="container">
+            <h2>Ready to Enjoy Dhangadhi's Best?</h2>
+            <p>Order fresh pastries, custom cakes, hot savory snacks, or complete restaurant meals now. Just click below to chat with us, place your order, or describe your custom cake requirements.</p>
+            <a href="https://wa.me/9779840859491?text=Hello%20Cake%20%26%20Kitchen%2C%20I%27d%20like%20to%20place%20a%20food%20order%20for%20delivery%2Fpickup!" 
+               target="_blank" 
+               class="btn btn-whatsapp" 
+               style="padding: 18px 40px; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37,211,102,0.3);">
+                <svg viewBox="0 0 24 24" style="width:26px; height:26px; fill:white; margin-right: 4px;">
+                    <path d="M12.004 2C6.51 2 2.014 6.5 2 12c0 2.18.7 4.21 2.01 5.97L2.5 23.5l5.72-1.5c1.7.93 3.63 1.44 5.78 1.44 5.5 0 10-4.5 10-10S19.5 2 12.004 2zm5.79 14.36c-.25.7-.93 1.25-1.63 1.47-.57.17-1.3.3-3.79-.73-3.18-1.32-5.23-4.57-5.39-4.78-.16-.21-1.3-1.74-1.3-3.32 0-1.58.82-2.35 1.11-2.67.3-.3.65-.45.87-.45.21 0 .43.01.62.02.2.01.46-.08.72.54.27.65.91 2.22.99 2.38.08.16.13.35.03.55-.1.2-.15.32-.3.5-.15.18-.32.4-.45.54-.15.15-.31.3-.13.62.18.3.8 1.32 1.72 2.14.92.82 1.7-1.08 2.02-1.25.32-.17.65-.13.87.03.22.16 1.4 1.15 1.64 1.34.25.12.42.27.48.37.07.16.07.62-.18 1.32z"/>
+                </svg>
+                Order via WhatsApp Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Action Button (Fixed Bottom-Right) -->
+    <a href="https://wa.me/9779840859491?text=Hello%20Cake%20%26%20Kitchen%2C%20I%20have%20an%20inquiry%20about%20ordering%20cakes%20%2F%20food!" 
+       target="_blank" 
+       class="whatsapp-float" 
+       id="whatsapp-fab" 
+       aria-label="Chat with Cake & Kitchen on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M12.004 2C6.51 2 2.014 6.5 2 12c0 2.18.7 4.21 2.01 5.97L2.5 23.5l5.72-1.5c1.7.93 3.63 1.44 5.78 1.44 5.5 0 10-4.5 10-10S19.5 2 12.004 2zm5.79 14.36c-.25.7-.93 1.25-1.63 1.47-.57.17-1.3.3-3.79-.73-3.18-1.32-5.23-4.57-5.39-4.78-.16-.21-1.3-1.74-1.3-3.32 0-1.58.82-2.35 1.11-2.67.3-.3.65-.45.87-.45.21 0 .43.01.62.02.2.01.46-.08.72.54.27.65.91 2.22.99 2.38.08.16.13.35.03.55-.1.2-.15.32-.3.5-.15.18-.32.4-.45.54-.15.15-.31.3-.13.62.18.3.8 1.32 1.72 2.14.92.82 1.7-1.08 2.02-1.25.32-.17.65-.13.87.03.22.16 1.4 1.15 1.64 1.34.25.12.42.27.48.37.07.16.07.62-.18 1.32z"/>
+        </svg>
+    </a>
+
+    <!-- Floating Scroll To Top Button -->
+    <a href="#home" class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top of page">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </a>
+
+    <!-- ==========================================
+       9. Footer Section & Maps
+       ========================================== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Info Column -->
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="Cake & Kitchen Logo" class="logo-img">
+                        <div class="logo-text">
+                            <h3 class="logo-title" style="color:white;">Cake & Kitchen</h3>
+                            <span class="logo-tagline" style="color:var(--color-secondary);">Restaurant & Bakery</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px; line-height: 1.5; font-size: 0.9rem;">Providing Dhangadhi with high-quality custom cakes, baked pastries, savory local snacks, and restaurant meals. Always fresh, always affordable.</p>
+                    <div class="footer-socials" style="margin-top: 12px;">
+                        <a href="https://instagram.com" target="_blank" class="footer-social-btn" aria-label="Follow us on Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                            </svg>
+                        </a>
+                        <!-- Facebook Icon -->
+                        <a href="https://facebook.com" target="_blank" class="footer-social-btn" aria-label="Follow us on Facebook">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.85z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links Column -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#gallery">Food Gallery</a></li>
+                        <li><a href="#reviews">Guest Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <!-- Pin Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>Main Road, Dhangadhi 10900, Nepal</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <!-- Phone Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span><a href="tel:9840859491">9840859491</a></span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <!-- Clock Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            <span>Open Daily: 8:00 AM - 11:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps Column -->
+                <div class="footer-col footer-map-col">
+                    <h4>Our Location</h4>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3515.7001402283084!2d80.58323677595304!3d28.698628081395874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a1c4df3ff3fbb7%3A0x63351ecf4cbef0ff!2sMain%20Road%2C%20Dhangadhi%2010900%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Cake & Kitchen Bakery Restaurant Google Map Location in Dhangadhi Nepal">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cake & Kitchen — Restaurant & Bakery. All rights reserved. | Crafted for Dhangadhi, Nepal.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script File -->
+    <script src="script.js"></script>
+</body>
+</html>
