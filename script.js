@@ -1,5 +1,5 @@
 /*
- * Cake & Kitchen — Restaurant & Bakery
+ * Cake & Kitchen — Restaurant & Cake Shop
  * Dhangadhi, Nepal
  * Primary JavaScript Functionality
  */
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. WhatsApp Custom Order Link Helper
     // ==========================================
     const orderButtons = document.querySelectorAll('.menu-card-order-btn');
-    const basePhoneNumber = '9779840859491'; // Nepali country code prefix + 9840859491
+    const basePhoneNumber = '9779840859591'; // Nepali country code prefix + 9840859591
 
     orderButtons.forEach(button => {
         button.addEventListener('click', (e) => {
