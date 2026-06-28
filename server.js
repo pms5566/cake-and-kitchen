@@ -13,9 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve static website files
 app.use(express.static(path.join(__dirname)));
+app.use('/assets/images', express.static(path.join(__dirname, 'storage', 'images')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-const DATA_FILE = path.join(__dirname, 'data.json');
+const DATA_FILE = path.join(__dirname, 'storage', 'data.json');
 
 // Helper to read data.json
 function readData() {
@@ -76,10 +77,10 @@ app.get('/api/data', (req, res) => {
     res.json(readData());
 });
 
-// Configure Multer for local file storage in assets/images
+// Configure Multer for local file storage in storage/images
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const dest = path.join(__dirname, 'assets', 'images');
+        const dest = path.join(__dirname, 'storage', 'images');
         if (!fs.existsSync(dest)) {
             fs.mkdirSync(dest, { recursive: true });
         }
@@ -97,7 +98,8 @@ const upload = multer({ storage: storage });
 // Helper to clean up unreferenced images
 function cleanUpImage(imagePath) {
     if (!imagePath || !imagePath.startsWith('assets/images/')) return;
-    const fullPath = path.join(__dirname, imagePath);
+    const relativePhysicalPath = imagePath.replace('assets/images/', 'storage/images/');
+    const fullPath = path.join(__dirname, relativePhysicalPath);
     
     // Check if the image is still referenced in menu or gallery
     const data = readData();
