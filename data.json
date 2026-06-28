@@ -1,0 +1,166 @@
+{
+  "menu": [
+    {
+      "id": "m1",
+      "category": "custom-cakes",
+      "image": "assets/images/wedding-cake.png",
+      "title": "Royal Wedding Tier Cake",
+      "desc": "Elegant and meticulously decorated multi-tiered cake designed specifically for your special wedding day.",
+      "badge": "Custom"
+    },
+    {
+      "id": "m2",
+      "category": "custom-cakes",
+      "image": "assets/images/fruit-delight.png",
+      "title": "Fruit Cream Fantasy",
+      "desc": "Custom designer cake covered in vanilla fresh whipped cream and loaded with seasonal glazed tropical fruits.",
+      "badge": "Custom"
+    },
+    {
+      "id": "m3",
+      "category": "birthday-cakes",
+      "image": "assets/images/black-forest.png",
+      "title": "Black Forest Classic",
+      "desc": "Delicious layers of chocolate sponge base, fresh whipped cream, dark cherries, and chocolate shavings.",
+      "badge": "Best Seller"
+    },
+    {
+      "id": "m4",
+      "category": "birthday-cakes",
+      "image": "assets/images/butterscotch-bliss.png",
+      "title": "Butterscotch Bliss",
+      "desc": "Moist butterscotch sponge layers paired with crunchy butterscotch chips and rich caramel drip.",
+      "badge": "Popular"
+    },
+    {
+      "id": "m5",
+      "category": "birthday-cakes",
+      "image": "assets/images/red-velvet.png",
+      "title": "Red Velvet Premium",
+      "desc": "Royal red cocoa sponge cake filled with velvety smooth cream cheese frosting layers. Irresistible!",
+      "badge": ""
+    },
+    {
+      "id": "m6",
+      "category": "birthday-cakes",
+      "image": "assets/images/strawberry-blush.png",
+      "title": "Strawberry Blush",
+      "desc": "Sweet and fruity cake baked with fresh strawberries and decorated with pink strawberry buttercream.",
+      "badge": ""
+    },
+    {
+      "id": "m7",
+      "category": "pastries",
+      "image": "assets/images/caramel-macchiato.png",
+      "title": "Caramel Macchiato Slice",
+      "desc": "Rich coffee-infused sponge cake slice layered with rich caramel sauce and white chocolate cream.",
+      "badge": ""
+    },
+    {
+      "id": "m8",
+      "category": "pastries",
+      "image": "assets/images/chocolate-truffle.png",
+      "title": "Chocolate Truffle Slice",
+      "desc": "Decadent chocolate sponge cake slice smothered with dense, smooth chocolate ganache glazing.",
+      "badge": "Classic"
+    },
+    {
+      "id": "m9",
+      "category": "pastries",
+      "image": "assets/images/pineapple-pastry.png",
+      "title": "Pineapple Bliss Slice",
+      "desc": "Light and airy sponge cake slice loaded with chopped pineapples, whipped cream, and cherry topping.",
+      "badge": ""
+    },
+    {
+      "id": "m10",
+      "category": "snacks",
+      "image": "assets/images/samosa.png",
+      "title": "Sizzling Samosa Plate",
+      "desc": "Two pieces of crispy golden-brown triangles stuffed with spiced potatoes and peas, served with sweet & sour chutneys.",
+      "badge": "Fresh"
+    },
+    {
+      "id": "m11",
+      "category": "snacks",
+      "image": "assets/images/choco-lava.png",
+      "title": "Choco Lava Fondant",
+      "desc": "Warm individual chocolate cake with a delicious molten liquid chocolate core. An absolute favorite snack!",
+      "badge": ""
+    },
+    {
+      "id": "m12",
+      "category": "restaurant",
+      "image": "assets/images/momo.png",
+      "title": "Steaming Chicken Momo",
+      "desc": "Freshly prepared steamed dumplings filled with finely chopped spiced chicken, served with tomato sesame chutney.",
+      "badge": "Must Try"
+    },
+    {
+      "id": "m13",
+      "category": "restaurant",
+      "image": "assets/images/chowmein.png",
+      "title": "Sizzling Chicken Chowmein",
+      "desc": "Stir-fried Nepalese noodles with colorful vegetables, chicken chunks, and local herbs and soy sauce.",
+      "badge": ""
+    }
+  ],
+  "gallery": [
+    {
+      "id": "g1",
+      "image": "assets/images/wedding-cake.png",
+      "title": "Royal Wedding Cake",
+      "category": "Custom Cakes",
+      "caption": "Royal Wedding Tier Cake - Custom design for special occasions"
+    },
+    {
+      "id": "g2",
+      "image": "assets/images/momo.png",
+      "title": "Nepalese Momo",
+      "category": "Restaurant Specials",
+      "caption": "Steaming Chicken Momos served with spicy achar chutney"
+    },
+    {
+      "id": "g3",
+      "image": "assets/images/black-forest.png",
+      "title": "Classic Black Forest",
+      "category": "Birthday Cakes",
+      "caption": "Classic Black Forest Birthday Cake layered with fresh cherries"
+    },
+    {
+      "id": "g4",
+      "image": "assets/images/samosa.png",
+      "title": "Crispy Samosas",
+      "category": "Snacks & Dips",
+      "caption": "Golden crispy samosas served fresh with mint and tamarind dips"
+    },
+    {
+      "id": "g5",
+      "image": "assets/images/chowmein.png",
+      "title": "Stir-fried Chowmein",
+      "category": "Restaurant Items",
+      "caption": "Sizzling stir-fried chowmein loaded with fresh spring greens"
+    },
+    {
+      "id": "g6",
+      "image": "assets/images/caramel-macchiato.png",
+      "title": "Caramel Macchiato",
+      "category": "Cake Slices",
+      "caption": "Rich Caramel Macchiato Cake Slice with caramel icing"
+    },
+    {
+      "id": "g7",
+      "image": "assets/images/butterscotch-bliss.png",
+      "title": "Butterscotch Bliss",
+      "category": "Birthday Cakes",
+      "caption": "Butterscotch Bliss cake topped with butterscotch crunch"
+    },
+    {
+      "id": "g8",
+      "image": "assets/images/fruit-delight.png",
+      "title": "Fruit Cream Fantasy",
+      "category": "Custom Designs",
+      "caption": "Freshly-cut Fruit Cream Fantasy Cake design"
+    }
+  ]
+}

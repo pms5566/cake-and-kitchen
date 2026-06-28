@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake & Kitchen — Admin CRM Portal</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #3B1A08;       /* Dark Brown */
+            --color-primary-light: #522710;
+            --color-primary-dark: #240F03;
+            --color-secondary: #F5D98B;     /* Golden Cream */
+            --color-secondary-light: #FFF0CC;
+            --color-secondary-dark: #D4B463;
+            --color-accent: #A84A1A;        /* Terracotta Rust */
+            --color-accent-hover: #BF5722;
+            --color-bg-warm: #FDFBF7;       /* Warm White Background */
+            --color-bg-card: #FFFFFF;
+            --color-text: #2D2522;          /* Soft Dark Brownish-Grey */
+            --color-text-light: #6A5B55;    /* Subdued Text */
+            --color-text-white: #FFFFFF;
+            --color-border: #E8E2DE;
+            --color-danger: #D32F2F;
+            --color-danger-hover: #B71C1C;
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Lato', Helvetica, Arial, sans-serif;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg-warm);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* -----------------------------------------
+           Login Overlay Styles
+           ----------------------------------------- */
+        #login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity var(--transition-normal);
+        }
+
+        .login-card {
+            background-color: var(--color-bg-card);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 20px 40px rgba(36, 15, 3, 0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            border: 1px solid var(--color-border);
+            animation: slideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .login-card h2 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .login-card p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-text);
+            background-color: var(--color-bg-warm);
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background-color: var(--color-primary);
+            color: var(--color-text-white);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .btn:hover {
+            background-color: var(--color-primary-light);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* -----------------------------------------
+           Main Dashboard Layout
+           ----------------------------------------- */
+        #dashboard {
+            display: none;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-text-white);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(59, 26, 8, 0.1);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header-title h1 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .header-title p {
+            font-size: 0.8rem;
+            color: var(--color-secondary);
+            font-weight: 300;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-text-white);
+            border: 2px solid var(--color-secondary);
+            padding: 8px 18px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-weight: 700;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary-dark);
+        }
+
+        /* Tabs Navigation */
+        .tabs-nav {
+            background-color: var(--color-bg-card);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            padding: 0 40px;
+            gap: 20px;
+        }
+
+        .tab-btn {
+            padding: 20px 10px;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            cursor: pointer;
+            position: relative;
+            transition: color var(--transition-fast);
+        }
+
+        .tab-btn:hover {
+            color: var(--color-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--color-primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+
+        /* Main Content Grid */
+        .content-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tab-panel {
+            display: none;
+            grid-template-columns: 380px 1fr;
+            gap: 30px;
+        }
+
+        .tab-panel.active {
+            display: grid;
+        }
+
+        @media (max-width: 900px) {
+            .tab-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Form Card */
+        .card {
+            background-color: var(--color-bg-card);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--color-border);
+            padding: 25px;
+            box-shadow: var(--shadow-md);
+            height: fit-content;
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--color-bg-warm);
+            padding-bottom: 10px;
+        }
+
+        /* File Upload Zone */
+        .upload-zone {
+            border: 2px dashed var(--color-border);
+            border-radius: var(--border-radius-sm);
+            padding: 30px 15px;
+            text-align: center;
+            cursor: pointer;
+            background-color: var(--color-bg-warm);
+            transition: all var(--transition-fast);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--color-accent);
+            background-color: var(--color-secondary-light);
+        }
+
+        .upload-zone svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--color-text-light);
+            margin-bottom: 10px;
+            transition: fill var(--transition-fast);
+        }
+
+        .upload-zone:hover svg {
+            fill: var(--color-accent);
+        }
+
+        .upload-zone input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .upload-preview {
+            display: none;
+            margin-top: 15px;
+            max-height: 150px;
+            border-radius: var(--border-radius-sm);
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Data list styles */
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .list-header h3 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        .list-header span {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            background-color: var(--color-border);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .item-row {
+            background-color: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 80px 1fr 120px;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .item-row:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .item-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius-sm);
+            object-fit: cover;
+            border: 1px solid var(--color-border);
+        }
+
+        .item-info h4 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 1.15rem;
+            margin-bottom: 5px;
+        }
+
+        .item-info .item-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .badge-cat {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background-color: var(--color-secondary-light);
+            color: var(--color-primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: capitalize;
+        }
+
+        .badge-promo {
+            font-size: 0.75rem;
+            font-weight: 700;
+            background-color: var(--color-accent);
+            color: var(--color-text-white);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .item-info p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .action-cell {
+            text-align: right;
+        }
+
+        .btn-danger {
+            background-color: transparent;
+            color: var(--color-danger);
+            border: 2px solid var(--color-danger);
+            padding: 8px 16px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-danger:hover {
+            background-color: var(--color-danger);
+            color: var(--color-text-white);
+        }
+
+        .btn-danger svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Floating Toast Container */
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-white);
+            padding: 15px 25px;
+            border-radius: var(--border-radius-sm);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+            min-width: 250px;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .toast.success {
+            border-left-color: var(--color-whatsapp);
+        }
+
+        .toast.error {
+            border-left-color: var(--color-danger);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Empty state styling */
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--color-text-light);
+            border: 1px dashed var(--color-border);
+            border-radius: var(--border-radius-md);
+            background-color: var(--color-bg-card);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+       1. Login Password Overlay
+       ========================================== -->
+    <div id="login-overlay">
+        <div class="login-card">
+            <img src="assets/logo.png" alt="Cake & Kitchen Logo" class="login-logo">
+            <h2>Portal Log In</h2>
+            <p>Enter administrative password to manage photos & products</p>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="admin-password">Passcode</label>
+                    <input type="password" id="admin-password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn">Access CRM Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+       2. Admin Dashboard Workspace
+       ========================================== -->
+    <div id="dashboard">
+        <header>
+            <div class="header-brand">
+                <img src="assets/logo.png" alt="Cake & Kitchen Logo" class="header-logo">
+                <div class="header-title">
+                    <h1>Cake & Kitchen</h1>
+                    <p>Management CRM Console</p>
+                </div>
+            </div>
+            <button class="btn-outline" id="logout-btn">Log Out</button>
+        </header>
+
+        <nav class="tabs-nav">
+            <button class="tab-btn active" data-tab="gallery-panel">Gallery Management</button>
+            <button class="tab-btn" data-tab="menu-panel">Menu Card Items</button>
+        </nav>
+
+        <main class="content-container">
+            
+            <!-- Gallery Panel -->
+            <div class="tab-panel active" id="gallery-panel">
+                <!-- Add Image Form -->
+                <div class="card">
+                    <h3>Add New Photo</h3>
+                    <form id="gallery-form">
+                        <div class="upload-zone" id="gallery-upload-zone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                            </svg>
+                            <p>Drag photo here or <strong>browse files</strong></p>
+                            <input type="file" id="gallery-file" accept="image/*" required>
+                            <img id="gallery-preview" class="upload-preview" alt="Preview">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="gallery-title">Title / Name</label>
+                            <input type="text" id="gallery-title" class="form-control" placeholder="e.g. Royal Wedding Cake" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="gallery-category">Category</label>
+                            <select id="gallery-category" class="form-control" required>
+                                <option value="Custom Cakes">Custom Cakes</option>
+                                <option value="Birthday Cakes">Birthday Cakes</option>
+                                <option value="Cake Slices">Cake Slices</option>
+                                <option value="Restaurant Specials">Restaurant Specials</option>
+                                <option value="Restaurant Items">Restaurant Items</option>
+                                <option value="Snacks & Dips">Snacks & Dips</option>
+                                <option value="Custom Designs">Custom Designs</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="gallery-caption">Description / Caption</label>
+                            <textarea id="gallery-caption" class="form-control" rows="3" placeholder="Description of the photo..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Upload to Gallery</button>
+                    </form>
+                </div>
+
+                <!-- Existing Images List -->
+                <div>
+                    <div class="list-header">
+                        <h3>Gallery Photos</h3>
+                        <span id="gallery-count">0 Photos</span>
+                    </div>
+                    <div class="list-container" id="gallery-list">
+                        <!-- Items injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Panel -->
+            <div class="tab-panel" id="menu-panel">
+                <!-- Add Product Form -->
+                <div class="card">
+                    <h3>Add Menu Product</h3>
+                    <form id="menu-form">
+                        <div class="upload-zone" id="menu-upload-zone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                            </svg>
+                            <p>Drag photo here or <strong>browse files</strong></p>
+                            <input type="file" id="menu-file" accept="image/*" required>
+                            <img id="menu-preview" class="upload-preview" alt="Preview">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="menu-title">Product Name</label>
+                            <input type="text" id="menu-title" class="form-control" placeholder="e.g. Chocolate Truffle Slice" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="menu-category">Category Tab</label>
+                            <select id="menu-category" class="form-control" required>
+                                <option value="custom-cakes">Custom Cakes</option>
+                                <option value="birthday-cakes">Birthday Cakes</option>
+                                <option value="pastries">Cake Slices (Pastries)</option>
+                                <option value="snacks">Snacks</option>
+                                <option value="restaurant">Restaurant Items</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="menu-badge">Promo Badge (Optional)</label>
+                            <select id="menu-badge" class="form-control">
+                                <option value="">No Badge</option>
+                                <option value="Custom">Custom</option>
+                                <option value="Best Seller">Best Seller</option>
+                                <option value="Popular">Popular</option>
+                                <option value="Classic">Classic</option>
+                                <option value="Fresh">Fresh</option>
+                                <option value="Must Try">Must Try</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="menu-desc">Description</label>
+                            <textarea id="menu-desc" class="form-control" rows="3" placeholder="Describe the ingredients or flavors..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Add Product to Menu</button>
+                    </form>
+                </div>
+
+                <!-- Existing Products List -->
+                <div>
+                    <div class="list-header">
+                        <h3>Menu Catalog</h3>
+                        <span id="menu-count">0 Products</span>
+                    </div>
+                    <div class="list-container" id="menu-list">
+                        <!-- Items injected here -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // State
+            let currentData = { menu: [], gallery: [] };
+            let authToken = localStorage.getItem('crm_token');
+
+            // DOM Elements
+            const loginOverlay = document.getElementById('login-overlay');
+            const loginForm = document.getElementById('login-form');
+            const adminPassword = document.getElementById('admin-password');
+            const dashboard = document.getElementById('dashboard');
+            const logoutBtn = document.getElementById('logout-btn');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            
+            const toastContainer = document.getElementById('toast-container');
+
+            // Gallery Elements
+            const galleryForm = document.getElementById('gallery-form');
+            const galleryFileInput = document.getElementById('gallery-file');
+            const galleryPreview = document.getElementById('gallery-preview');
+            const galleryUploadZone = document.getElementById('gallery-upload-zone');
+            const galleryList = document.getElementById('gallery-list');
+            const galleryCount = document.getElementById('gallery-count');
+
+            // Menu Elements
+            const menuForm = document.getElementById('menu-form');
+            const menuFileInput = document.getElementById('menu-file');
+            const menuPreview = document.getElementById('menu-preview');
+            const menuUploadZone = document.getElementById('menu-upload-zone');
+            const menuList = document.getElementById('menu-list');
+            const menuCount = document.getElementById('menu-count');
+
+            // ==========================================
+            // Auth Verification & Setup
+            // ==========================================
+            function checkAuth() {
+                if (authToken === 'cake-kitchen-admin-token-12345') {
+                    loginOverlay.style.display = 'none';
+                    dashboard.style.display = 'block';
+                    loadData();
+                } else {
+                    loginOverlay.style.display = 'flex';
+                    dashboard.style.display = 'none';
+                }
+            }
+            checkAuth();
+
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const password = adminPassword.value;
+
+                try {
+                    const res = await fetch('/api/login', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ password })
+                    });
+
+                    if (res.ok) {
+                        const data = await res.json();
+                        authToken = data.token;
+                        localStorage.setItem('crm_token', authToken);
+                        showToast('Login successful', 'success');
+                        checkAuth();
+                    } else {
+                        showToast('Invalid passcode', 'error');
+                        adminPassword.value = '';
+                    }
+                } catch (err) {
+                    showToast('Connection error', 'error');
+                }
+            });
+
+            logoutBtn.addEventListener('click', () => {
+                authToken = null;
+                localStorage.removeItem('crm_token');
+                checkAuth();
+                showToast('Logged out', 'success');
+            });
+
+            // ==========================================
+            // Tabs navigation
+            // ==========================================
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    tabPanels.forEach(p => p.classList.remove('active'));
+
+                    btn.classList.add('active');
+                    const activeTabId = btn.getAttribute('data-tab');
+                    document.getElementById(activeTabId).classList.add('active');
+                });
+            });
+
+            // ==========================================
+            // Toast Notification Helper
+            // ==========================================
+            function showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.textContent = message;
+                
+                toastContainer.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateX(100%)';
+                    toast.style.transition = 'all 0.3s ease';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            // ==========================================
+            // File Upload Preview Listeners
+            // ==========================================
+            function setupFilePreview(fileInput, previewImg, zone) {
+                fileInput.addEventListener('change', () => {
+                    const file = fileInput.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            previewImg.src = e.target.result;
+                            previewImg.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        previewImg.src = '';
+                        previewImg.style.display = 'none';
+                    }
+                });
+            }
+
+            setupFilePreview(galleryFileInput, galleryPreview, galleryUploadZone);
+            setupFilePreview(menuFileInput, menuPreview, menuUploadZone);
+
+            // ==========================================
+            // Read Operations (Fetch lists)
+            // ==========================================
+            async function loadData() {
+                try {
+                    const res = await fetch('/api/data');
+                    if (res.ok) {
+                        currentData = await res.json();
+                        renderGalleryList(currentData.gallery);
+                        renderMenuList(currentData.menu);
+                    } else {
+                        showToast('Error loading database', 'error');
+                    }
+                } catch (err) {
+                    showToast('Could not load data', 'error');
+                }
+            }
+
+            function renderGalleryList(items) {
+                galleryCount.textContent = `${items.length} Photos`;
+                galleryList.innerHTML = '';
+
+                if (items.length === 0) {
+                    galleryList.innerHTML = `<div class="empty-state">No photos in the gallery. Use the form on the left to add one!</div>`;
+                    return;
+                }
+
+                items.slice().reverse().forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'item-row';
+                    row.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="item-thumb">
+                        <div class="item-info">
+                            <h4>${item.title}</h4>
+                            <div class="item-meta">
+                                <span class="badge-cat">${item.category}</span>
+                            </div>
+                            <p>${item.caption || 'No caption description.'}</p>
+                        </div>
+                        <div class="action-cell">
+                            <button class="btn-danger delete-gallery-btn" data-id="${item.id}">
+                                <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                Delete
+                            </button>
+                        </div>
+                    `;
+                    galleryList.appendChild(row);
+                });
+
+                // Attach delete event listeners
+                document.querySelectorAll('.delete-gallery-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const id = btn.getAttribute('data-id');
+                        if (confirm('Are you sure you want to delete this gallery photo?')) {
+                            await deleteGalleryItem(id);
+                        }
+                    });
+                });
+            }
+
+            function renderMenuList(items) {
+                menuCount.textContent = `${items.length} Products`;
+                menuList.innerHTML = '';
+
+                if (items.length === 0) {
+                    menuList.innerHTML = `<div class="empty-state">No products in the menu. Use the form on the left to add one!</div>`;
+                    return;
+                }
+
+                items.slice().reverse().forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'item-row';
+                    
+                    const badgeHtml = item.badge ? `<span class="badge-promo">${item.badge}</span>` : '';
+                    
+                    row.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="item-thumb">
+                        <div class="item-info">
+                            <h4>${item.title}</h4>
+                            <div class="item-meta">
+                                <span class="badge-cat">${item.category}</span>
+                                ${badgeHtml}
+                            </div>
+                            <p>${item.desc || 'No description.'}</p>
+                        </div>
+                        <div class="action-cell">
+                            <button class="btn-danger delete-menu-btn" data-id="${item.id}">
+                                <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                                Delete
+                            </button>
+                        </div>
+                    `;
+                    menuList.appendChild(row);
+                });
+
+                // Attach delete event listeners
+                document.querySelectorAll('.delete-menu-btn').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const id = btn.getAttribute('data-id');
+                        if (confirm('Are you sure you want to delete this product?')) {
+                            await deleteMenuItem(id);
+                        }
+                    });
+                });
+            }
+
+            // ==========================================
+            // Write Operations (Add & Delete)
+            // ==========================================
+            galleryForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const file = galleryFileInput.files[0];
+                if (!file) return showToast('Please select a photo file', 'error');
+
+                const formData = new FormData();
+                formData.append('image', file);
+                formData.append('title', document.getElementById('gallery-title').value);
+                formData.append('category', document.getElementById('gallery-category').value);
+                formData.append('caption', document.getElementById('gallery-caption').value);
+
+                try {
+                    const res = await fetch('/api/gallery', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (res.ok) {
+                        showToast('Photo uploaded successfully', 'success');
+                        galleryForm.reset();
+                        galleryPreview.style.display = 'none';
+                        loadData();
+                    } else {
+                        const errData = await res.json();
+                        showToast(errData.message || 'Failed to upload photo', 'error');
+                    }
+                } catch (err) {
+                    showToast('Connection error during upload', 'error');
+                }
+            });
+
+            menuForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const file = menuFileInput.files[0];
+                if (!file) return showToast('Please select a product photo', 'error');
+
+                const formData = new FormData();
+                formData.append('image', file);
+                formData.append('title', document.getElementById('menu-title').value);
+                formData.append('category', document.getElementById('menu-category').value);
+                formData.append('badge', document.getElementById('menu-badge').value);
+                formData.append('desc', document.getElementById('menu-desc').value);
+
+                try {
+                    const res = await fetch('/api/menu', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (res.ok) {
+                        showToast('Product added successfully', 'success');
+                        menuForm.reset();
+                        menuPreview.style.display = 'none';
+                        loadData();
+                    } else {
+                        const errData = await res.json();
+                        showToast(errData.message || 'Failed to add product', 'error');
+                    }
+                } catch (err) {
+                    showToast('Connection error during upload', 'error');
+                }
+            });
+
+            async function deleteGalleryItem(id) {
+                try {
+                    const res = await fetch(`/api/gallery/${id}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (res.ok) {
+                        showToast('Photo removed from gallery', 'success');
+                        loadData();
+                    } else {
+                        showToast('Failed to delete photo', 'error');
+                    }
+                } catch (err) {
+                    showToast('Connection error during deletion', 'error');
+                }
+            }
+
+            async function deleteMenuItem(id) {
+                try {
+                    const res = await fetch(`/api/menu/${id}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (res.ok) {
+                        showToast('Product removed from menu', 'success');
+                        loadData();
+                    } else {
+                        showToast('Failed to delete product', 'error');
+                    }
+                } catch (err) {
+                    showToast('Connection error during deletion', 'error');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
