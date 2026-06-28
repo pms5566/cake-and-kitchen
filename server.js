@@ -41,14 +41,34 @@ function writeData(data) {
 }
 
 // Simple Admin Login
-const ADMIN_PASSWORD = 'admin'; // Customizable
-
 app.post('/api/login', (req, res) => {
     const { password } = req.body;
-    if (password === ADMIN_PASSWORD) {
+    const data = readData();
+    const currentPassword = (data.settings && data.settings.adminPassword) || 'admin';
+    
+    if (password === currentPassword) {
         return res.json({ success: true, token: 'cake-kitchen-admin-token-12345' });
     }
     return res.status(401).json({ success: false, message: 'Invalid password' });
+});
+
+// Change Password Endpoint
+app.post('/api/change-password', (req, res) => {
+    const { currentPassword, newPassword } = req.body;
+    const data = readData();
+    const existingPassword = (data.settings && data.settings.adminPassword) || 'admin';
+    
+    if (currentPassword !== existingPassword) {
+        return res.status(401).json({ success: false, message: 'Current password is incorrect' });
+    }
+    
+    if (!data.settings) {
+        data.settings = {};
+    }
+    data.settings.adminPassword = newPassword;
+    writeData(data);
+    
+    return res.json({ success: true, message: 'Password changed successfully' });
 });
 
 // GET dynamic data

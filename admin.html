@@ -555,6 +555,29 @@
         </div>
     </div>
 
+    <!-- Change Password Modal -->
+    <div id="change-password-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(36,15,3,0.6); display: none; justify-content: center; align-items: center; z-index: 1050;">
+        <div class="login-card" style="position: relative;">
+            <button id="close-change-pass" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-text-light);">&times;</button>
+            <h3 style="font-family: var(--font-heading); color: var(--color-primary); margin-bottom: 20px; font-size: 1.5rem;">Change Password</h3>
+            <form id="change-password-form">
+                <div class="input-group">
+                    <label for="current-password-input">Current Password</label>
+                    <input type="password" id="current-password-input" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div class="input-group">
+                    <label for="new-password-input">New Password</label>
+                    <input type="password" id="new-password-input" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password-input">Confirm New Password</label>
+                    <input type="password" id="confirm-password-input" class="form-control" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn">Update Password</button>
+            </form>
+        </div>
+    </div>
+
     <!-- ==========================================
        2. Admin Dashboard Workspace
        ========================================== -->
@@ -567,7 +590,10 @@
                     <p>Management CRM Console</p>
                 </div>
             </div>
-            <button class="btn-outline" id="logout-btn">Log Out</button>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-outline" id="open-change-pass-btn">Change Password</button>
+                <button class="btn-outline" id="logout-btn">Log Out</button>
+            </div>
         </header>
 
         <nav class="tabs-nav">
@@ -719,6 +745,15 @@
             
             const toastContainer = document.getElementById('toast-container');
 
+            // Change Password Elements
+            const changePasswordModal = document.getElementById('change-password-modal');
+            const openChangePassBtn = document.getElementById('open-change-pass-btn');
+            const closeChangePassBtn = document.getElementById('close-change-pass');
+            const changePasswordForm = document.getElementById('change-password-form');
+            const currentPasswordInput = document.getElementById('current-password-input');
+            const newPasswordInput = document.getElementById('new-password-input');
+            const confirmPasswordInput = document.getElementById('confirm-password-input');
+
             // Gallery Elements
             const galleryForm = document.getElementById('gallery-form');
             const galleryFileInput = document.getElementById('gallery-file');
@@ -781,6 +816,58 @@
                 localStorage.removeItem('crm_token');
                 checkAuth();
                 showToast('Logged out', 'success');
+            });
+
+            // ==========================================
+            // Change Password Dialog Actions
+            // ==========================================
+            openChangePassBtn.addEventListener('click', () => {
+                changePasswordModal.style.display = 'flex';
+            });
+
+            const closeChangePass = () => {
+                changePasswordModal.style.display = 'none';
+                changePasswordForm.reset();
+            };
+
+            closeChangePassBtn.addEventListener('click', closeChangePass);
+
+            changePasswordModal.addEventListener('click', (e) => {
+                if (e.target === changePasswordModal) {
+                    closeChangePass();
+                }
+            });
+
+            changePasswordForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const currentPassword = currentPasswordInput.value;
+                const newPassword = newPasswordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+
+                if (newPassword !== confirmPassword) {
+                    return showToast('New passwords do not match', 'error');
+                }
+
+                try {
+                    const res = await fetch('/api/change-password', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ currentPassword, newPassword })
+                    });
+
+                    if (res.ok) {
+                        showToast('Password changed successfully. Please log in again.', 'success');
+                        closeChangePass();
+                        authToken = null;
+                        localStorage.removeItem('crm_token');
+                        checkAuth();
+                    } else {
+                        const errData = await res.json();
+                        showToast(errData.message || 'Error changing password', 'error');
+                    }
+                } catch (err) {
+                    showToast('Connection error', 'error');
+                }
             });
 
             // ==========================================
